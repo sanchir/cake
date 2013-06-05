@@ -12,12 +12,16 @@ class StationsController extends AppController {
  * @var mixed
  */
 	public $scaffold;
+	public $components = array('Master');
 	
 	public function index() {
 		$this->paginate = array(
 			// 'conditions' => array('Station.name LIKE' => 'a%'),
 			'limit' => 10
 		);
+		
+		$this->Master->userList();
+		
 		$stations = $this->paginate('Station');
 		$this->set('stations', $stations);
 	}

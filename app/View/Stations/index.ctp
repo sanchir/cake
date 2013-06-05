@@ -40,5 +40,8 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Station'), array('action' => 'add')); ?></li>
+		<?php foreach ($users as $user): ?>
+		<li><?php echo $user; ?></li>
+		<?php endforeach; ?>
 	</ul>
 </div>
