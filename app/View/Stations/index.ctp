@@ -1,4 +1,5 @@
-<div class="stations index">
+<?php echo $this->element('Ajax/latlon'); ?>
+<div class="stations index" id="latlonval">
 	<h2><?php echo __('Stations'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
@@ -40,8 +41,5 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Station'), array('action' => 'add')); ?></li>
-		<?php foreach ($users as $user): ?>
-		<li><?php echo $user; ?></li>
-		<?php endforeach; ?>
 	</ul>
 </div>

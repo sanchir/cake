@@ -1,5 +1,5 @@
 <?php
-App::uses('Component', 'Controller');
+// App::uses('Component', 'Controller');
 class MasterComponent extends Component{
 
     public $controller;

@@ -36,6 +36,41 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+	<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+<?php $this->Html->scriptStart(array('inline' => false))?>
+<script type="text/javascript">
+<!--
+function getGeoLocation(){
+    if (navigator.geolocation && typeof navigator.geolocation.getCurrentPosition == 'function') {
+        /*位置情報を取得可能な場合*/
+        navigator.geolocation.getCurrentPosition(showMap, handleError);
+    }
+    else {
+        /*位置情報を取得不可能な場合*/
+        handleError();
+    }
+}
+
+function showMap(position) {
+    /*位置情報を表示する*/
+    var coords = position.coords;
+	$.ajax( {
+		url: '/ajax/latlon',
+		type: 'POST',
+		dataType: 'HTML',
+		data: {"lat":coords.latitude, "lng":coords.longitude},
+		success: function(data) {
+            // $("#latlonval").html(data);
+        }
+     } );
+}
+
+function handleError(error) {
+    /*取得失敗のアラートを表示する*/
+    alert('位置情報を使用可能に設定して下さい。');
+}
+//-->
+</script>
 </head>
 <body>
 	<div id="container">
