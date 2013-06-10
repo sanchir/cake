@@ -54,13 +54,30 @@ function getGeoLocation(){
 function showMap(position) {
     /*位置情報を表示する*/
     var coords = position.coords;
+	
+	// var form = document.createElement('form');
+    // document.body.appendChild(form);
+    // var input = document.createElement('input');
+    // input.setAttribute('type', 'hidden');
+    // input.setAttribute('name', 'lat');
+    // input.setAttribute('value', coords.latitude);
+    // form.appendChild(input);
+    // var input2 = document.createElement('input');
+    // input2.setAttribute('type', 'hidden');
+    // input2.setAttribute('name', 'lng');
+    // input2.setAttribute('value', coords.longitude);
+    // form.appendChild(input2);
+    // form.setAttribute('action', '/stations/latlon' );
+    // form.setAttribute('method', 'post');
+    // form.submit();
+	
 	$.ajax( {
 		url: '/ajax/latlon',
 		type: 'POST',
 		dataType: 'HTML',
 		data: {"lat":coords.latitude, "lng":coords.longitude},
 		success: function(data) {
-            // $("#latlonval").html(data);
+            $("#latlonval").html(data);
         }
      } );
 }

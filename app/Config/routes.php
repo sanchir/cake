@@ -32,9 +32,10 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 	Router::connect('/stations/*', array('controller' => 'stations', 'action' => 'index'));
+	Router::connect('/stations/latlon', array('controller' => 'stations', 'action' => 'latlon'));
         
 	//Ajax
-	Router::connect('/', array('controller' => 'ajax', 'action' => 'latlon'));
+	Router::connect('/ajax', array('controller' => 'ajax', 'action' => 'latlon'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

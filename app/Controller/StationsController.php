@@ -11,7 +11,7 @@ class StationsController extends AppController {
  *
  * @var mixed
  */
-	public $scaffold;
+	// public $scaffold;
 	public $components = array('Master');
 	
 	public function index() {
@@ -20,16 +20,6 @@ class StationsController extends AppController {
 			// 'conditions' => array('Station.name LIKE' => 'a%'),
 			'limit' => 10
 		);
-		
-		if (isset($this->params['pass'][0]) && isset($this->params['pass'][1])) {
-			$lat = $this->params['pass'][0];
-			$lng = $this->params['pass'][1];
-
-			$this->paginate = array(
-				// 'conditions' => array('Station.name LIKE' => 'a%'),
-				'limit' => 20
-			);
-		}
 		
 		/**
 			SELECT id,
@@ -53,7 +43,18 @@ class StationsController extends AppController {
 	}
 	
 	public function latlon() {
-		// echo $this->params['pass'][0];
+	
+		$lat = $_POST['lat'];
+		$lon = $_POST['lng'];
+		echo $lat;
+		$this->paginate = array(
+			// 'conditions' => array('Station.name LIKE' => 'a%'),
+			// 'fields' => array('id', 'name', 'lat', 'lng'),
+			'limit' => 20
+		);
+		
+		$stations = $this->paginate('Station');
+		$this->set('stations', $stations);
 	}
 
 }
