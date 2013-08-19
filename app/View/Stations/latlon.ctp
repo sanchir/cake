@@ -5,7 +5,7 @@
 	<td><?php echo $station['Stations']['name']; ?></td>
 	<td><?php echo $station['Stations']['lat']; ?></td>
 	<td><?php echo $station['Stations']['lng']; ?></td>
-	<td><?php echo $station['Stations']['dist']; ?></td>
+	<td><?php echo $station['Stations']['latlng']; ?></td>
 </tr>
 <?php endforeach; ?>
 </table>

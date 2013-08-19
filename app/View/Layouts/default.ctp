@@ -22,22 +22,30 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <!DOCTYPE html>
 <html>
 <head>
-	<?php echo $this->Html->charset(); ?>
-	<title>
-		<?php echo $cakeDescription ?>:
-		<?php echo $title_for_layout; ?>
-	</title>
-	<?php
-		echo $this->Html->meta('icon');
+    <?php echo $this->Html->charset(); ?>
+    <title>
+        <?php echo $cakeDescription ?>:
+        <?php echo $title_for_layout; ?>
+    </title>
+    <?php
+        echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
+        echo $this->Html->css('cake.generic');
 
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
-	?>
-	<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
-<?php $this->Html->scriptStart(array('inline' => false))?>
+        echo $this->fetch('meta');
+        echo $this->fetch('css');
+        echo $this->fetch('script');
+    ?>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.8/webfont.js"></script>
+<script type="text/javascript">
+WebFont.load({
+google: {
+families: [ 'Tangerine', 'Cantarell' ]
+}
+});
+</script>
 <script type="text/javascript">
 <!--
 function getGeoLocation(){
@@ -54,8 +62,8 @@ function getGeoLocation(){
 function showMap(position) {
     /*位置情報を表示する*/
     var coords = position.coords;
-	
-	// var form = document.createElement('form');
+    
+    // var form = document.createElement('form');
     // document.body.appendChild(form);
     // var input = document.createElement('input');
     // input.setAttribute('type', 'hidden');
@@ -70,13 +78,13 @@ function showMap(position) {
     // form.setAttribute('action', '/stations/latlon' );
     // form.setAttribute('method', 'post');
     // form.submit();
-	
-	$.ajax( {
-		url: '/ajax/latlon',
-		type: 'POST',
-		dataType: 'HTML',
-		data: {"lat":coords.latitude, "lng":coords.longitude},
-		success: function(data) {
+    
+    $.ajax( {
+        url: '/ajax/latlon',
+        type: 'POST',
+        dataType: 'HTML',
+        data: {"lat":coords.latitude, "lng":coords.longitude},
+        success: function(data) {
             $("#latlonval").html(data);
         }
      } );
@@ -90,25 +98,25 @@ function handleError(error) {
 </script>
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
-		</div>
-		<div id="content">
+    <div id="container">
+        <div id="header">
+            <h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
+        </div>
+        <div id="content">
 
-			<?php echo $this->Session->flash(); ?>
+            <?php echo $this->Session->flash(); ?>
 
-			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
-		</div>
-	</div>
-	<?php echo $this->element('sql_dump'); ?>
+            <?php echo $this->fetch('content'); ?>
+        </div>
+        <div id="footer">
+            <?php echo $this->Html->link(
+                    $this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
+                    'http://www.cakephp.org/',
+                    array('target' => '_blank', 'escape' => false)
+                );
+            ?>
+        </div>
+    </div>
+    <?php echo $this->element('sql_dump'); ?>
 </body>
 </html>

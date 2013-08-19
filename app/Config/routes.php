@@ -35,7 +35,7 @@
 	Router::connect('/stations/latlon', array('controller' => 'stations', 'action' => 'latlon'));
         
 	//Ajax
-	Router::connect('/ajax', array('controller' => 'ajax', 'action' => 'latlon'));
+	Router::connect('/ajax/dialog', array('controller' => 'ajax', 'action' => 'dialog'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on
