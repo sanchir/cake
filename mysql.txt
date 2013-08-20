@@ -12,8 +12,8 @@ default-character-set=utf8
 default-character-set=utf8
 
 
-mysql> create database xoops;
-mysql> GRANT ALL PRIVILEGES ON xoops.* TO 'xoopsuser'@'localhost' IDENTIFIED BY 'xoopspass';
+mysql> create database testdb;
+mysql> GRANT ALL PRIVILEGES ON testdb.* TO 'testuser'@'localhost' IDENTIFIED BY 'testpass';
 mysql> flush privileges;
 
 
