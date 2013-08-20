@@ -1,0 +1,20 @@
+[client] 行の下
+default-character-set=utf8
+
+[mysqld] 行の下
+default-character-set=utf8
+skip-character-set-client-handshake
+
+[mysqldump] 行の下
+default-character-set=utf8
+
+[mysql] 行の下
+default-character-set=utf8
+
+
+mysql> create database xoops;
+mysql> GRANT ALL PRIVILEGES ON xoops.* TO 'xoopsuser'@'localhost' IDENTIFIED BY 'xoopspass';
+mysql> flush privileges;
+
+
+
